@@ -2,11 +2,16 @@
   "name": "wordpress-query-term",
   "version": "1.0.0",
   "description": "A component for fetching WordPress taxonomy term data from the REST API.",
-  "private": true,
   "repository": {
     "type": "git",
     "url": "https://github.com/ryelle/wordpress-query-term"
   },
+  "keywords": [
+    "react",
+    "react-component",
+    "wordpress",
+    "wpapi"
+  ],
   "license": "GPL-2.0+",
   "devDependencies": {
     "babel-core": "^6.17.0",
