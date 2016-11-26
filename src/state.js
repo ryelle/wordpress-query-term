@@ -21,7 +21,7 @@ export const TERM_REQUEST_FAILURE = 'wordpress-redux/terms/REQUEST_FAILURE';
  * @param  {Object} action Action payload
  * @return {Object}        Updated state
  */
-function items( state = {}, action ) {
+export function items( state = {}, action ) {
 	switch ( action.type ) {
 		case TERM_REQUEST_SUCCESS:
 			const terms = keyBy( [ action.term ], 'id' );
@@ -40,7 +40,7 @@ function items( state = {}, action ) {
  * @param  {Object} action Action payload
  * @return {Object}        Updated state
  */
-function requests( state = {}, action ) {
+export function requests( state = {}, action ) {
 	switch ( action.type ) {
 		case TERM_REQUEST:
 		case TERM_REQUEST_SUCCESS:
@@ -59,7 +59,7 @@ function requests( state = {}, action ) {
  * @param  {Object} action Action payload
  * @return {Object}        Updated state
  */
-function slugs( state = {}, action ) {
+export function slugs( state = {}, action ) {
 	switch ( action.type ) {
 		case TERM_REQUEST_SUCCESS:
 			if ( ! state[ action.taxonomy ] ) {
