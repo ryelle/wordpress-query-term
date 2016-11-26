@@ -1,0 +1,79 @@
+[ {
+  "id": 15,
+  "count": 4,
+  "description": "Posts in this category test odd corner cases, using uncovered by rare user workflows.",
+  "link": "http://trunk.wordpress.dev/category/corner-case/",
+  "name": "Corner Case",
+  "slug": "corner-case",
+  "taxonomy": "category",
+  "parent": 0,
+  "meta": [],
+  "_links": {
+    "self": [
+      {
+        "href": "http://trunk.wordpress.dev/wp-json/wp/v2/categories/15"
+      }
+    ],
+    "collection": [
+      {
+        "href": "http://trunk.wordpress.dev/wp-json/wp/v2/categories"
+      }
+    ],
+    "about": [
+      {
+        "href": "http://trunk.wordpress.dev/wp-json/wp/v2/taxonomies/category"
+      }
+    ],
+    "wp:post_type": [
+      {
+        "href": "http://trunk.wordpress.dev/wp-json/wp/v2/posts?categories=15"
+      }
+    ],
+    "curies": [
+      {
+        "name": "wp",
+        "href": "https://api.w.org/{rel}",
+        "templated": true
+      }
+    ]
+  }
+}, {
+  "id": 30,
+  "count": 13,
+  "description": "Posts in this category test post formats.",
+  "link": "http://trunk.wordpress.dev/tags/post-formats/",
+  "name": "Post Formats",
+  "slug": "post-formats",
+  "taxonomy": "post_tag",
+  "parent": 0,
+  "meta": [],
+  "_links": {
+    "self": [
+      {
+        "href": "http://trunk.wordpress.dev/wp-json/wp/v2/tags/30"
+      }
+    ],
+    "collection": [
+      {
+        "href": "http://trunk.wordpress.dev/wp-json/wp/v2/tags"
+      }
+    ],
+    "about": [
+      {
+        "href": "http://trunk.wordpress.dev/wp-json/wp/v2/taxonomies/post_tag"
+      }
+    ],
+    "wp:post_type": [
+      {
+        "href": "http://trunk.wordpress.dev/wp-json/wp/v2/posts?tags=30"
+      }
+    ],
+    "curies": [
+      {
+        "name": "wp",
+        "href": "https://api.w.org/{rel}",
+        "templated": true
+      }
+    ]
+  }
+} ]
