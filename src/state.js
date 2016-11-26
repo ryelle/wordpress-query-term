@@ -46,7 +46,7 @@ export function requests( state = {}, action ) {
 		case TERM_REQUEST_SUCCESS:
 		case TERM_REQUEST_FAILURE:
 			const uniqId = `${action.taxonomy}_${action.termSlug}`
-			return Object.assign( {}, state[ uniqId ], { [ uniqId ]: TERM_REQUEST === action.type } );
+			return Object.assign( {}, state, { [ uniqId ]: TERM_REQUEST === action.type } );
 		default:
 			return state;
 	}
