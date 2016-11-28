@@ -4,8 +4,10 @@
  */
 import { combineReducers } from 'redux';
 import keyBy from 'lodash/keyBy';
-import find from 'lodash/find';
-const site = require( 'wpapi' )( { endpoint: SiteSettings.endpoint, nonce: SiteSettings.nonce } );
+import API from 'wordpress-rest-api-oauth-1';
+const api = new API( {
+	url: SiteSettings.endpoint
+} );
 
 /**
  * Term actions
@@ -101,19 +103,16 @@ export function requestTerm( taxonomy, termSlug ) {
 			termSlug
 		} );
 
-		let taxonomyFunc;
+		// Default to the passed `taxonomy`, but categories and tags have inconsistent names
+		let taxonomyEndpoint = taxonomy;
 		if ( 'category' === taxonomy ) {
-			taxonomyFunc = 'categories';
+			taxonomyEndpoint = 'categories';
 		} else if ( ( 'post_tag' === taxonomy ) || ( 'tag' === taxonomy ) ) {
-			taxonomyFunc = 'tags';
-		} else {
-			taxonomyFunc = 'taxonomies';
+			taxonomyEndpoint = 'tags';
 		}
 
-		return site[taxonomyFunc]().search( termSlug ).then( ( data ) => {
-			const term = find( data, {
-				slug: termSlug
-			} );
+		api.get( `/wp/v2/${taxonomyEndpoint}/`, { slug: termSlug } ).then( data => {
+			const term = data[0];
 			dispatch( {
 				type: TERM_REQUEST_SUCCESS,
 				term,
