@@ -1,10 +1,11 @@
 /**
  * External dependencies
  */
-import { Component, PropTypes } from 'react';
+import { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import debugFactory from 'debug';
+import PropTypes from 'prop-types';
 
 /**
  * Internal dependencies
@@ -44,11 +45,11 @@ QueryTerm.propTypes = {
 	termSlug: PropTypes.string.isRequired,
 	taxonomy: PropTypes.string.isRequired,
 	requestingTerm: PropTypes.bool,
-	requestTerm: PropTypes.func
+	requestTerm: PropTypes.func,
 };
 
 QueryTerm.defaultProps = {
-	requestTerm: () => {}
+	requestTerm: () => {},
 };
 
 export default connect(
@@ -60,7 +61,7 @@ export default connect(
 	},
 	( dispatch ) => {
 		return bindActionCreators( {
-			requestTerm
+			requestTerm,
 		}, dispatch );
 	}
 )( QueryTerm );

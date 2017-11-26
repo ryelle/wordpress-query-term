@@ -23,7 +23,7 @@ export function isRequestingTerm( state, taxonomy, slug ) {
 		return false;
 	}
 
-	const uniqId = `${taxonomy}_${slug}`;
+	const uniqId = `${ taxonomy }_${ slug }`;
 	return !! state.terms.requests[ uniqId ];
 }
 

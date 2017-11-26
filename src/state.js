@@ -6,7 +6,7 @@ import { combineReducers } from 'redux';
 import keyBy from 'lodash/keyBy';
 import API from 'wordpress-rest-api-oauth-1';
 const api = new API( {
-	url: SiteSettings.endpoint
+	url: SiteSettings.endpoint,
 } );
 
 /**
@@ -47,7 +47,7 @@ export function requests( state = {}, action ) {
 		case TERM_REQUEST:
 		case TERM_REQUEST_SUCCESS:
 		case TERM_REQUEST_FAILURE:
-			const uniqId = `${action.taxonomy}_${action.termSlug}`
+			const uniqId = `${ action.taxonomy }_${ action.termSlug }`;
 			return Object.assign( {}, state, { [ uniqId ]: TERM_REQUEST === action.type } );
 		default:
 			return state;
@@ -67,15 +67,15 @@ export function slugs( state = {}, action ) {
 			if ( ! state[ action.taxonomy ] ) {
 				return Object.assign( {}, state, {
 					[ action.taxonomy ]: {
-						[ action.termSlug ]: action.termId
-					}
+						[ action.termSlug ]: action.termId,
+					},
 				} );
 			}
 			return Object.assign( {}, state, {
 				[ action.taxonomy ]: {
 					...state[ action.taxonomy ],
-					[ action.termSlug ]: action.termId
-				}
+					[ action.termSlug ]: action.termId,
+				},
 			} );
 		default:
 			return state;
@@ -85,7 +85,7 @@ export function slugs( state = {}, action ) {
 export default combineReducers( {
 	items,
 	requests,
-	slugs
+	slugs,
 } );
 
 /**
@@ -100,7 +100,7 @@ export function requestTerm( taxonomy, termSlug ) {
 		dispatch( {
 			type: TERM_REQUEST,
 			taxonomy,
-			termSlug
+			termSlug,
 		} );
 
 		// Default to the passed `taxonomy`, but categories and tags have inconsistent names
@@ -111,8 +111,8 @@ export function requestTerm( taxonomy, termSlug ) {
 			taxonomyEndpoint = 'tags';
 		}
 
-		api.get( `/wp/v2/${taxonomyEndpoint}/`, { slug: termSlug } ).then( data => {
-			const term = data[0];
+		api.get( `/wp/v2/${ taxonomyEndpoint }/`, { slug: termSlug } ).then( data => {
+			const term = data[ 0 ];
 			dispatch( {
 				type: TERM_REQUEST_SUCCESS,
 				term,
@@ -126,7 +126,7 @@ export function requestTerm( taxonomy, termSlug ) {
 				type: TERM_REQUEST_FAILURE,
 				taxonomy,
 				termSlug,
-				error
+				error,
 			} );
 		} );
 	};
